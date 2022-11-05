@@ -1,0 +1,32 @@
+{
+    "name": "@wideflare/sphereclient",
+    "version": "1.0",
+    "description": "Wideflare sphere client library for javascript",
+    "main": "lib/es5/index.js",
+    "module": "lib/es6/index.js",
+    "sideEffects": false,
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/wideflare/sphereclientjavascript.git"
+    },
+    "files": [
+      "lib",
+      "CHANGELOG.md",
+      "LICENSE",
+      "package.json",
+      "README.md"
+    ],
+    "keywords": [
+      "javascript",
+      "wideflare",
+      "sphereclient",
+      "wideflaresphere",
+      "wideflare sphere"
+    ],
+    "author": "Syed Yunus",
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/wideflare/sphereclientjavascript/issues"
+    },
+    "homepage": "https://sphere.wideflare.com/sphereclient#javascript"
+  }
