@@ -1,6 +1,6 @@
 {
     "name": "@wideflare/sphereclient",
-    "version": "1.0",
+    "version": "1.0.0",
     "description": "Wideflare sphere client library for javascript",
     "main": "lib/es5/index.js",
     "module": "lib/es6/index.js",

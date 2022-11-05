@@ -37,33 +37,39 @@ export class SphereClient {
             new XHRFetch(`https://api.wideflare.com/?action=getItem&appKey=${this.appKey}&itemId=${itemId}` , {
                 getData(data) {
                     
-                    getItem.onLoadfinished()
+                    
 
                     let code : number = data.response.code;
                     let status : string = data.response.status;
 
                      if(code == 401){
                          getItem.onNotExist();
+                         getItem.onLoadfinished()
                          return;
                        }else if(code == 404){
                           getItem.onNotFound();
+                          getItem.onLoadfinished()
                           return;
                        }
                        else if(code == 405){
                           getItem.onNotActive();
+                          getItem.onLoadfinished()
                           return;
                        }
                        else if(code == 400){
                           getItem.onBadRequest();
+                          getItem.onLoadfinished()
                           return;
                        }else if(code == 406){
                            getItem.onNotAcceptable();
+                           getItem.onLoadfinished()
                            return;
                        }
      
      
                        if(status == "under-construction"){
                          getItem.onUnderConstruction();
+                         getItem.onLoadfinished()
                           return;
                       }
      
@@ -83,15 +89,12 @@ export class SphereClient {
                         getItem.onCover(info.homeCover);
                     }
 
-
-
                         getItem.onResult(info.appName , info.appIcon , info.homeCover , data.itemName , data.extras , atob(data.body) , data.itemCategoryName , data.itemImages  , data.itemImage )
-
-
-
+                        getItem.onLoadfinished()
                 },
                 error(error) {
                     getItem.onError()
+                    getItem.onLoadfinished()
                 },
             })
 
@@ -111,33 +114,39 @@ export class SphereClient {
             new XHRFetch(`https://api.wideflare.com/?action=getItems&appKey=${this.appKey}&page=${this.itemsPageNumber}&categoryId=${itemCategory}` , {
                 getData(data) {
                     
-                    getItemsLoadMore.onLoadfinished()
+                    
 
                     let code : number = data.response.code;
                     let status : string = data.response.status;
 
                      if(code == 401){
                          getItemsLoadMore.onNotExist();
+                         getItemsLoadMore.onLoadfinished()
                          return;
                        }else if(code == 404){
                           getItemsLoadMore.onNotFound();
+                          getItemsLoadMore.onLoadfinished()
                           return;
                        }
                        else if(code == 405){
                           getItemsLoadMore.onNotActive();
+                          getItemsLoadMore.onLoadfinished()
                           return;
                        }
                        else if(code == 400){
                           getItemsLoadMore.onBadRequest();
+                          getItemsLoadMore.onLoadfinished()
                           return;
                        }else if(code == 406){
                            getItemsLoadMore.onNotAcceptable();
+                           getItemsLoadMore.onLoadfinished()
                            return;
                        }
      
      
                        if(status == "under-construction"){
                          getItemsLoadMore.onUnderConstruction();
+                         getItemsLoadMore.onLoadfinished()
                           return;
                       }
      
@@ -179,10 +188,12 @@ export class SphereClient {
                        getItemsLoadMore.onEmpty();
                     }
 
+                    getItemsLoadMore.onLoadfinished()
 
                 },
                 error(error) {
                     getItemsLoadMore.onError()
+                    getItemsLoadMore.onLoadfinished()
                 },
             } )
 
@@ -190,37 +201,43 @@ export class SphereClient {
 
         //loads items belonging to a category
         getItems(itemCategory: string , getItems : GetItems){
-            this.itemsPageNumber = 1;
+                 this.itemsPageNumber = 1;
                 getItems.onLoading()
                 new XHRFetch(`https://api.wideflare.com/?action=getItems&appKey=${this.appKey}&page=1&categoryId=${itemCategory}` , {
                     getData(data) {
-                        getItems.onLoadfinished()
+                        
 
                         let code : number = data.response.code;
                         let status : string = data.response.status;
     
                          if(code == 401){
                              getItems.onNotExist();
+                             getItems.onLoadfinished()
                              return;
                            }else if(code == 404){
                               getItems.onNotFound();
+                              getItems.onLoadfinished()
                               return;
                            }
                            else if(code == 405){
                               getItems.onNotActive();
+                              getItems.onLoadfinished()
                               return;
                            }
                            else if(code == 400){
                               getItems.onBadRequest();
+                              getItems.onLoadfinished()
                               return;
                            }else if(code == 406){
                                getItems.onNotAcceptable();
+                               getItems.onLoadfinished()
                                return;
                            }
          
          
                            if(status == "under-construction"){
                              getItems.onUnderConstruction();
+                             getItems.onLoadfinished()
                               return;
                           }
          
@@ -274,10 +291,12 @@ export class SphereClient {
                         }
     
 
+                        getItems.onLoadfinished()
 
                     },
                     error(error) {
                         getItems.onError()
+                        getItems.onLoadfinished()
                     },
                 })
         }
@@ -295,33 +314,39 @@ export class SphereClient {
 
             new XHRFetch(`https://api.wideflare.com/?action=getLauncher&appKey=${this.appKey}&page=${this.launcherPageNumber}&launcherId=${launcherId}` , {
                 getData(data) {
-                    getLauncherLoadMore.onLoadfinished()
+                    
 
                     let code : number = data.response.code;
                     let status : string = data.response.status;
 
                      if(code == 401){
                          getLauncherLoadMore.onNotExist();
+                         getLauncherLoadMore.onLoadfinished()
                          return;
                        }else if(code == 404){
                           getLauncherLoadMore.onNotFound();
+                          getLauncherLoadMore.onLoadfinished()
                           return;
                        }
                        else if(code == 405){
                           getLauncherLoadMore.onNotActive();
+                          getLauncherLoadMore.onLoadfinished()
                           return;
                        }
                        else if(code == 400){
                           getLauncherLoadMore.onBadRequest();
+                          getLauncherLoadMore.onLoadfinished()
                           return;
                        }else if(code == 406){
                            getLauncherLoadMore.onNotAcceptable();
+                           getLauncherLoadMore.onLoadfinished()
                            return;
                        }
      
      
                        if(status == "under-construction"){
                          getLauncherLoadMore.onUnderConstruction();
+                         getLauncherLoadMore.onLoadfinished()
                           return;
                       }
      
@@ -362,10 +387,11 @@ export class SphereClient {
                    getLauncherLoadMore.onEmpty();
                 }
 
-
+                getLauncherLoadMore.onLoadfinished()
                 },
                 error(error) {
                     getLauncherLoadMore.onError()
+                    getLauncherLoadMore.onLoadfinished()
                 },
             })
 
@@ -379,33 +405,44 @@ export class SphereClient {
 
             new XHRFetch(`https://api.wideflare.com/?action=getLauncher&appKey=${this.appKey}&page=1&launcherId=${launcherId}` , {
                 getData(data) {
-                    getLauncher.onLoadfinished()
 
                     let code : number = data.response.code;
                     let status : string = data.response.status;
 
                      if(code == 401){
                          getLauncher.onNotExist();
+                                             getLauncher.onLoadfinished()
+
                          return;
                        }else if(code == 404){
                           getLauncher.onNotFound();
+                                              getLauncher.onLoadfinished()
+
                           return;
                        }
                        else if(code == 405){
                           getLauncher.onNotActive();
+                                              getLauncher.onLoadfinished()
+
                           return;
                        }
                        else if(code == 400){
                           getLauncher.onBadRequest();
+                                              getLauncher.onLoadfinished()
+
                           return;
                        }else if(code == 406){
                            getLauncher.onNotAcceptable();
+                                               getLauncher.onLoadfinished()
+
                            return;
                        }
      
      
                        if(status == "under-construction"){
                          getLauncher.onUnderConstruction();
+                                             getLauncher.onLoadfinished()
+
                           return;
                       }
      
@@ -458,11 +495,14 @@ export class SphereClient {
                 }else {
                    getLauncher.onEmpty();
                 }
+                getLauncher.onLoadfinished()
 
 
                 },
                 error(error) {
                     getLauncher.onError()
+                    getLauncher.onLoadfinished()
+
                 },
             })
 
@@ -479,7 +519,6 @@ export class SphereClient {
                     getData(data) {
                         
 
-                        getHomeLoadMore.onLoadfinished();
 
                         let code : number = data.response.code;
                         let status : string = data.response.status;
@@ -505,6 +544,8 @@ export class SphereClient {
          
                            if(status == "under-construction"){
                              getHomeLoadMore.onUnderConstruction();
+                             getHomeLoadMore.onLoadfinished();
+
                               return;
                           }
          
@@ -544,10 +585,12 @@ export class SphereClient {
                          }else {
                             getHomeLoadMore.onEmpty();
                          }
+                         getHomeLoadMore.onLoadfinished();
 
                     },
                     error(error) {
-                        
+                        getHomeLoadMore.onError()
+                        getHomeLoadMore.onLoadfinished();
                     },
                 })
          }
@@ -558,32 +601,38 @@ export class SphereClient {
                 getHome.onLoading();
             new XHRFetch(`https://api.wideflare.com/?action=getHome&appKey=${this.appKey}&page=1` , { getData(data) {
 
-            getHome.onLoadfinished();
+            
 
                let code : number = data.response.code;
                let status : string = data.response.status;
                 if(code == 401){
                     getHome.onNotExist();
+                    getHome.onLoadfinished();
                     return;
                   }else if(code == 404){
                      getHome.onNotFound();
+                     getHome.onLoadfinished();
                      return;
                   }
                   else if(code == 405){
                      getHome.onNotActive();
+                     getHome.onLoadfinished();
                      return;
                   }
                   else if(code == 400){
                      getHome.onBadRequest();
+                     getHome.onLoadfinished();
                      return;
                   }else if(code == 406){
                       getHome.onNotAcceptable();
+                      getHome.onLoadfinished();
                       return;
                   }
 
 
                   if(status == "under-construction"){
                     getHome.onUnderConstruction();
+                    getHome.onLoadfinished();
                      return;
                  }
 
@@ -639,14 +688,16 @@ export class SphereClient {
                      });
 
                     getHome.onResult(info.appName ,info.appIcon ,info.totalItemCount  ,  info.itemsInThisPage , info.itemsPerPage  , items);
-
                 }else {
                    getHome.onEmpty();
                 }
+
+                getHome.onLoadfinished();
             }
             ,
             error(error){
                 getHome.onError();
+                getHome.onLoadfinished();
             }
              }
           );
