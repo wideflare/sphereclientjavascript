@@ -9,9 +9,9 @@ export interface GetHome {
      onMessage( messageTitle : string ,  messageBody : string);
      onAppLocation( appLocation : string ,  latitude : number ,  longitude  : number);
      onNextPage();
-     onCover( cover : string);
-     onEmpty();
-     onError();
+     onHomeCover( cover : string);
+     onEmpty(appName : string ,  appIcon : string);
+     onError(error : any);
      onUnderConstruction();
      onNotActive();
      onNotExist();

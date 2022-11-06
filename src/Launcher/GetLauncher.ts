@@ -8,9 +8,9 @@ export interface GetLauncher {
       onAnnouncement( announcementBody: string);
       onAppLocation( appLocation: string ,  latitude: number ,  longitude: number );
       onNextPage();
-      onCover( cover: string);
-      onEmpty();
-      onError();
+      onLauncherCover( cover: string);
+      onEmpty(appName: string ,  appIcon: string  ,  launcherName: string, launcherIcon: string);
+      onError(error: any);
       onUnderConstruction();
       onNotActive();
       onNotExist();

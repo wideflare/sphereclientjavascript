@@ -6,7 +6,7 @@ export interface GetLauncherLoadMore {
       onLoadfinished();
       onNextPage();
       onEmpty();
-      onError();
+      onError(error: any);
       onUnderConstruction();
       onNotActive();
       onNotExist();

@@ -38,6 +38,7 @@ export class SphereClient {
                 getData(data) {
                     
                     
+                    
 
                     let code : number = data.response.code;
                     let status : string = data.response.status;
@@ -86,14 +87,14 @@ export class SphereClient {
                     }
 
                     if(info.homeCover.length !== 0){
-                        getItem.onCover(info.homeCover);
+                        getItem.onHomeCover(info.homeCover);
                     }
 
-                        getItem.onResult(info.appName , info.appIcon , info.homeCover , data.itemName , data.extras , atob(data.body) , data.itemCategoryName , data.itemImages  , data.itemImage )
+                        getItem.onResult(info.appName , info.appIcon  , data.itemName , data.extras , atob(data.body) , data.itemCategoryName , data.itemImages  , data.itemImage )
                         getItem.onLoadfinished()
                 },
                 error(error) {
-                    getItem.onError()
+                    getItem.onError(error)
                     getItem.onLoadfinished()
                 },
             })
@@ -116,6 +117,7 @@ export class SphereClient {
                     
                     
 
+                    
                     let code : number = data.response.code;
                     let status : string = data.response.status;
 
@@ -192,7 +194,7 @@ export class SphereClient {
 
                 },
                 error(error) {
-                    getItemsLoadMore.onError()
+                    getItemsLoadMore.onError(error)
                     getItemsLoadMore.onLoadfinished()
                 },
             } )
@@ -207,6 +209,7 @@ export class SphereClient {
                     getData(data) {
                         
 
+                        
                         let code : number = data.response.code;
                         let status : string = data.response.status;
     
@@ -258,7 +261,7 @@ export class SphereClient {
                         }
     
                         if(info.homeCover.length !== 0){
-                            getItems.onCover(info.homeCover);
+                            getItems.onHomeCover(info.homeCover);
                         }
     
     
@@ -284,10 +287,10 @@ export class SphereClient {
         
 
                         
-                             getItems.onResult(info.appName ,info.appIcon , info.categoryName , info.categoryIcon ,info.totalItemCount  ,  info.itemsInThisPage , info.itemsPerPage  , items);
+                             getItems.onResult(info.appName ,info.appIcon , info.categoryName , info.categoryThumbnail ,info.totalItemCount  ,  info.itemsInThisPage , info.itemsPerPage  , items);
         
                         }else {
-                           getItems.onEmpty();
+                           getItems.onEmpty(info.appName ,info.appIcon , info.categoryName , info.categoryThumbnail);
                         }
     
 
@@ -295,7 +298,7 @@ export class SphereClient {
 
                     },
                     error(error) {
-                        getItems.onError()
+                        getItems.onError(error)
                         getItems.onLoadfinished()
                     },
                 })
@@ -316,6 +319,7 @@ export class SphereClient {
                 getData(data) {
                     
 
+                    
                     let code : number = data.response.code;
                     let status : string = data.response.status;
 
@@ -390,7 +394,7 @@ export class SphereClient {
                 getLauncherLoadMore.onLoadfinished()
                 },
                 error(error) {
-                    getLauncherLoadMore.onError()
+                    getLauncherLoadMore.onError(error)
                     getLauncherLoadMore.onLoadfinished()
                 },
             })
@@ -406,6 +410,7 @@ export class SphereClient {
             new XHRFetch(`https://api.wideflare.com/?action=getLauncher&appKey=${this.appKey}&page=1&launcherId=${launcherId}` , {
                 getData(data) {
 
+                    
                     let code : number = data.response.code;
                     let status : string = data.response.status;
 
@@ -463,7 +468,7 @@ export class SphereClient {
                     }
 
                     if(info.launcherCover.length !== 0){
-                        getLauncher.onCover(info.launcherCover);
+                        getLauncher.onLauncherCover(info.launcherCover);
                     }
 
 
@@ -490,17 +495,17 @@ export class SphereClient {
                     )
                      });
 
-                     getLauncher.onResult(info.appName ,info.appIcon , info.launcherName , info.launcherIcon ,info.totalItemCount  ,  info.itemsInThisPage , info.itemsPerPage  , items);
+                     getLauncher.onResult(info.appName ,info.appIcon , info.launcherName , info.launcherThumbnail ,info.totalItemCount  ,  info.itemsInThisPage , info.itemsPerPage  , items);
 
                 }else {
-                   getLauncher.onEmpty();
+                   getLauncher.onEmpty(info.appName ,info.appIcon , info.launcherName , info.launcherThumbnail);
                 }
                 getLauncher.onLoadfinished()
 
 
                 },
                 error(error) {
-                    getLauncher.onError()
+                    getLauncher.onError(error)
                     getLauncher.onLoadfinished()
 
                 },
@@ -518,7 +523,7 @@ export class SphereClient {
                 new XHRFetch(`https://api.wideflare.com/?action=getHome&appKey=${this.appKey}&page=${this.homePageNumber}` , {
                     getData(data) {
                         
-
+                            
 
                         let code : number = data.response.code;
                         let status : string = data.response.status;
@@ -589,7 +594,7 @@ export class SphereClient {
 
                     },
                     error(error) {
-                        getHomeLoadMore.onError()
+                        getHomeLoadMore.onError(error)
                         getHomeLoadMore.onLoadfinished();
                     },
                 })
@@ -601,6 +606,7 @@ export class SphereClient {
                 getHome.onLoading();
             new XHRFetch(`https://api.wideflare.com/?action=getHome&appKey=${this.appKey}&page=1` , { getData(data) {
 
+            
             
 
                let code : number = data.response.code;
@@ -663,7 +669,7 @@ export class SphereClient {
                 }
 
                 if(info.homeCover.length !== 0){
-                    getHome.onCover(info.homeCover);
+                    getHome.onHomeCover(info.homeCover);
                 }
 
                 if(info.nextPage.status) {
@@ -689,14 +695,14 @@ export class SphereClient {
 
                     getHome.onResult(info.appName ,info.appIcon ,info.totalItemCount  ,  info.itemsInThisPage , info.itemsPerPage  , items);
                 }else {
-                   getHome.onEmpty();
+                   getHome.onEmpty(info.appName , info.appIcon);
                 }
 
                 getHome.onLoadfinished();
             }
             ,
             error(error){
-                getHome.onError();
+                getHome.onError(error);
                 getHome.onLoadfinished();
             }
              }

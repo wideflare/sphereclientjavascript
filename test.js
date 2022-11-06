@@ -1,56 +1,55 @@
 import { SphereClient } from "./dist/lib/es6/index.js";
  
 
-
 let sphereClient = new SphereClient("MjJiYWRlZjViNDJjOTYzOTAzMDNhMDU4OTU5OTk5NDc=");
 
 
 
 
-sphereClient.getItem('6360b6d7895179561908318e' , {
-   onResult(appName , appIcon  , cover , itemName ,extras  , body ,itemCategoryName ,itemImages , itemImage){
-         console.log('appname'  , appName , 'appIcon' , appIcon  , 'cover' , cover , 'itemName' , itemName , 'extras' , extras , 'body' , body , 'itemcategoryname' , itemCategoryName , 'itemimages' , itemImages , 'itemimage' , itemImage)
-   },
-   onLoading(){
-                  console.log('loading started')
-               },
-               onLoadfinished(){
-                  console.log('loading finished')
-               },
-     onAnnouncement( announcementBody ){
-                  console.log(announcementBody)
-               },
-     onAppLocation( appLocation  ,  latitude  ,  longitude  ){
-                  console.log(appLocation , latitude , longitude)
-               },
-     onCover(cover){
-         console.log('cover' , cover)
-     },
-     onError(){
-                        console.log('error' , 'there is an error')
-                     },
-                     onUnderConstruction(){
-                        console.log('under construction')
-                     },
-      onNotActive(){
-                  console.log('not active')
-               },
-               onNotExist(){
-                  console.log('not exist')
-               },
-               onNotFound(){
-                  console.log('not found')
-               },
-               onNotAcceptable(){
-                  console.log('not acceptable')
-               },
-               onBadRequest(){
-                  console.log('bad request')
-               },
-               onNoNextPage(){
-                  console.log('no next page')
-               },
-})
+// sphereClient.getItem('6360b6d7895179561908318e' , {
+//    onResult(appName , appIcon  , cover , itemName ,extras  , body ,itemCategoryName ,itemImages , itemImage){
+//          console.log('appname'  , appName , 'appIcon' , appIcon  , 'cover' , cover , 'itemName' , itemName , 'extras' , extras , 'body' , body , 'itemcategoryname' , itemCategoryName , 'itemimages' , itemImages , 'itemimage' , itemImage)
+//    },
+//    onLoading(){
+//                   console.log('loading started')
+//                },
+//                onLoadfinished(){
+//                   console.log('loading finished')
+//                },
+//      onAnnouncement( announcementBody ){
+//                   console.log(announcementBody)
+//                },
+//      onAppLocation( appLocation  ,  latitude  ,  longitude  ){
+//                   console.log(appLocation , latitude , longitude)
+//                },
+//      onCover(cover){
+//          console.log('cover' , cover)
+//      },
+//      onError(){
+//                         console.log('error' , 'there is an error')
+//                      },
+//                      onUnderConstruction(){
+//                         console.log('under construction')
+//                      },
+//       onNotActive(){
+//                   console.log('not active')
+//                },
+//                onNotExist(){
+//                   console.log('not exist')
+//                },
+//                onNotFound(){
+//                   console.log('not found')
+//                },
+//                onNotAcceptable(){
+//                   console.log('not acceptable')
+//                },
+//                onBadRequest(){
+//                   console.log('bad request')
+//                },
+//                onNoNextPage(){
+//                   console.log('no next page')
+//                },
+// })
 
 
 // sphereClient.getItemsLoadMore('6350eb271e9e985b4f088b6f' , {

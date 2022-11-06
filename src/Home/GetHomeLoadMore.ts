@@ -6,7 +6,7 @@ import {HomeItems} from './HomeItems.js'
      onLoadfinished();
      onNextPage();
      onEmpty();
-     onError();
+     onError(error: any);
      onUnderConstruction();
      onNotActive();
      onNotExist();
