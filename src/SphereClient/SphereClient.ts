@@ -38,7 +38,7 @@ export class SphereClient {
                 getData(data) {
                     
                     
-                    
+                    try{
 
                     let code : number = data.response.code;
                     let status : string = data.response.status;
@@ -92,6 +92,13 @@ export class SphereClient {
 
                         getItem.onResult(info.appName , info.appIcon  , data.itemName , data.extras , atob(data.body) , data.itemCategoryName , data.itemImages  , data.itemImage )
                         getItem.onLoadfinished()
+
+
+                       } ///
+                       catch(e){
+                        console.log(e)
+                    }
+
                 },
                 error(error) {
                     getItem.onError(error)
@@ -117,7 +124,7 @@ export class SphereClient {
                     
                     
 
-                    
+                    try{
                     let code : number = data.response.code;
                     let status : string = data.response.status;
 
@@ -192,6 +199,11 @@ export class SphereClient {
 
                     getItemsLoadMore.onLoadfinished()
 
+                    }///
+                    catch(e){
+                        console.log(e)
+                    }
+
                 },
                 error(error) {
                     getItemsLoadMore.onError(error)
@@ -209,7 +221,7 @@ export class SphereClient {
                     getData(data) {
                         
 
-                        
+                       try{ 
                         let code : number = data.response.code;
                         let status : string = data.response.status;
     
@@ -296,6 +308,11 @@ export class SphereClient {
 
                         getItems.onLoadfinished()
 
+                       } ///
+                       catch(e){
+                        console.log(e)
+                    }
+
                     },
                     error(error) {
                         getItems.onError(error)
@@ -319,7 +336,7 @@ export class SphereClient {
                 getData(data) {
                     
 
-                    
+                   try{ 
                     let code : number = data.response.code;
                     let status : string = data.response.status;
 
@@ -392,6 +409,12 @@ export class SphereClient {
                 }
 
                 getLauncherLoadMore.onLoadfinished()
+
+
+               } ///
+               catch(e){
+                console.log(e)
+            }
                 },
                 error(error) {
                     getLauncherLoadMore.onError(error)
@@ -410,7 +433,7 @@ export class SphereClient {
             new XHRFetch(`https://api.wideflare.com/?action=getLauncher&appKey=${this.appKey}&page=1&launcherId=${launcherId}` , {
                 getData(data) {
 
-                    
+                   try{ 
                     let code : number = data.response.code;
                     let status : string = data.response.status;
 
@@ -502,6 +525,10 @@ export class SphereClient {
                 }
                 getLauncher.onLoadfinished()
 
+               } ///
+               catch(e){
+                console.log(e)
+            }
 
                 },
                 error(error) {
@@ -523,7 +550,7 @@ export class SphereClient {
                 new XHRFetch(`https://api.wideflare.com/?action=getHome&appKey=${this.appKey}&page=${this.homePageNumber}` , {
                     getData(data) {
                         
-                            
+                       try{     
 
                         let code : number = data.response.code;
                         let status : string = data.response.status;
@@ -592,6 +619,12 @@ export class SphereClient {
                          }
                          getHomeLoadMore.onLoadfinished();
 
+
+
+                        } 
+                        catch(e){
+                            console.log(e)
+                        }
                     },
                     error(error) {
                         getHomeLoadMore.onError(error)
@@ -606,7 +639,7 @@ export class SphereClient {
                 getHome.onLoading();
             new XHRFetch(`https://api.wideflare.com/?action=getHome&appKey=${this.appKey}&page=1` , { getData(data) {
 
-            
+            try{
             
 
                let code : number = data.response.code;
@@ -699,7 +732,14 @@ export class SphereClient {
                 }
 
                 getHome.onLoadfinished();
+
+                }
+                catch(e){
+                    console.log(e)
+                }
             }
+
+
             ,
             error(error){
                 getHome.onError(error);
@@ -709,7 +749,7 @@ export class SphereClient {
           );
 
 
-         }
+         } 
 
 
 

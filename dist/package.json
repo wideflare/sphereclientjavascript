@@ -1,6 +1,6 @@
 {
     "name": "@wideflare/sphereclient",
-    "version": "1.0.0",
+    "version": "1.1.7",
     "description": "Wideflare sphere client library for javascript",
     "main": "lib/es5/index.js",
     "module": "lib/es6/index.js",
@@ -28,5 +28,8 @@
     "bugs": {
       "url": "https://github.com/wideflare/sphereclientjavascript/issues"
     },
-    "homepage": "https://sphere.wideflare.com/sphereclient#javascript"
+    "homepage": "https://sphere.wideflare.com/sphereclient#javascript",
+    "dependencies": {
+      "axios": "^1.1.3"
+    }
   }
